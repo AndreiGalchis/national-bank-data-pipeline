@@ -29,7 +29,7 @@ class ETLPipeline:
 
             # TRANSFORM
             logger.info("\n TRANSFORM - Processing data...")
-            date_str, structured_rates = transform(raw_data)
+            date_str, structured_rates, transform_metrics = transform(raw_data)
             logger.info(f"Transform completed - {len(structured_rates)} records")
 
             # LOAD
@@ -48,6 +48,9 @@ class ETLPipeline:
             return {
                 "status": "success",
                 "date": date_str,
+                "records_extracted": transform_metrics["total_records"],
+                "records_valid": transform_metrics["valid_records"],
+                "records_invalid": transform_metrics["invalid_records"],
                 "records_loaded": records_loaded,
                 "duration_seconds": duration
             }
