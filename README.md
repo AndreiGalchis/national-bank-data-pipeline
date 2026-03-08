@@ -37,7 +37,7 @@ Data Source (BNR XML Feed) -> Extract -> Transform -> Load (in the Database) -> 
 - Python
 - FastAPI
 - SQLAlchemy
-- PostgreSQL / SQLite
+- SQLite (designed with SQLAlchemy ORM for easy migration to PostgreSQL if needed)
 - Requests
 - XML parsing (xmltodict)
 - Pytest
